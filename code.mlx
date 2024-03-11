@@ -1,0 +1,15 @@
+n=155;%%n means the number of files
+ttsvoice = [];%% a place to put the name of audio files
+for i=1:n
+    j=i-1;
+    str = j+".wav";
+    ttsvoice = [ttsvoice,str];
+end
+ y=[];
+addpath('D:\githubwork\reddttsthree\tortoise-tts\results\longform\frozen');
+%%add the location of your audio file to path that can be reserched by matlab
+for i1=1:n
+    [x,Fs]=audioread(ttsvoice(i1));
+    y=[y;x];
+end
+audiowrite('newf.wav',y,Fs);
